@@ -1,0 +1,34 @@
+.row.sales_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 18px;
+}
+.row.invoice_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 18px;
+    align-items: stretch;
+}
+h1, o_content.h1 {
+    font-size: 2.6rem;
+    margin-bottom: 5px;
+    font-family: 'Roboto-Regular';
+    text-align: center;
+}
+.o_content {
+    overflow-y: scroll;
+    height: 100%;
+}
+hr{
+    width:90%
+}
+select#client_filter {
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid lightgray;
+    margin-bottom: 20px;
+}

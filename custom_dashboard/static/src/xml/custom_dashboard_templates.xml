@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="CustomDashBoard">
+        <div class="o_content">
+            <div class="row sales_row">
+                <div class="m-3" id="sales_count_table"></div>
+                <div class="m-3">
+                    <h1>Sales Count</h1>
+                    <canvas id="SaleCountPie" width="400" height="400"></canvas>
+                </div>
+                <div class="m-3">
+                    <h1>Sales Margin Profit</h1>
+                    <canvas id="SaleProfitPie" width="400" height="400"></canvas>
+                </div>
+            </div>
+            <hr class="hr"/>
+            <div class="row invoice_row">
+                <div class="col-3 m-3">
+                    <div id="invoiceFilter"></div>
+                    <div id="invoiced_amount_table"></div>
+                </div>
+                <div class="col-3 m-3">
+                    <h1>Client invoice Analysis</h1>
+                    <canvas id="InvoiceCountPie" width="400" height="400"></canvas>
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
+
+        </div>
+    </t>
+    <t t-name="SaleTableView">
+        <h1>Sales Analysis</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Sales Person</th>
+                    <th class="text-center">Total Sale Order Count</th>
+                    <th class="text-center">Margin Value</th>
+                </tr>
+            </thead>
+            <t t-foreach="sales_data" t-as="sales">
+                <tr>
+                    <td class="text-center">
+                        <t t-out="sales.name"/>
+                    </td>
+                    <td class="text-center">
+                        <t t-out="sales.sale_count"/>
+                    </td>
+                    <td class="text-center">
+                        <t t-out="sales.total_margin"/>
+                    </td>
+                </tr>
+            </t>
+        </table>
+    </t>
+    <t t-name="InvoiceTableView">
+        <div class="invoice_table">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Client</th>
+                        <th class="text-center">Invoiced Amount</th>
+                    </tr>
+                </thead>
+                <t t-foreach="invoice_data" t-as="invoice">
+                    <tr>
+                        <td class="text-center">
+                            <t t-out="invoice.name"/>
+                        </td>
+                        <td class="text-center">
+                            <t t-out="invoice.invoiced_amount"/>
+                        </td>
+                    </tr>
+                </t>
+            </table>
+        </div>
+    </t>
+    <t t-name="filterClientInvoice">
+        <h1>Invoice Analysis</h1>
+        <select class="form-select client_options" id="client_filter">
+            <option value="-1">All Client</option>
+            <t t-foreach="invoice_client" t-as="inv">
+                <option t-att-value='inv.id'>
+                    <t t-esc="inv.name"/>
+                </option>
+            </t>
+        </select>
+    </t>
+</templates>

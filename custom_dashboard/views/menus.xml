@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Dashboard menu and action-->
+    <record id="custom_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">custom_dashboard_tags</field>
+    </record>
+    <menuitem name="Dashboard" id="custom_dashboard"
+              action="custom_dashboard_action"/>
+</odoo>
